@@ -1,0 +1,69 @@
+﻿<Window x:Class="_1712482_1712509_1712528.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1712482_1712509_1712528"
+        mc:Ignorable="d" Loaded="Window_Loaded"
+        Title="Media Payler" Icon="Image/icon.png" Height="500" Width="800" Closing="Window_Closing" Unloaded="Window_Unloaded" >
+    <Window.Resources>
+        <local:NameConverter  x:Key="converter" />
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="Image/nen.jpg" />
+    </Window.Background>
+    <Canvas>
+        <Button Name="addButton" Width="80" Height="36" Click="addButton_Click" Canvas.Left="218" Canvas.Top="174" Background="White" BorderBrush="White">
+            <Image Source="Image/add.png" Height="30"/>
+        </Button>
+        <ListBox Name="playlistListBox" Width="644" Height="161" Canvas.Left="79" Canvas.Top="252" SelectionChanged="PlaylistListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name, Converter={StaticResource converter}}"/>
+                </DataTemplate>
+
+            </ListBox.ItemTemplate>
+
+        </ListBox>
+        <Canvas Name="canvas" Canvas.Top="50" Canvas.Left="160">
+            <Button Name="Button1" Click="PlayMusicButton_Click" Width="0" Height="0" Canvas.Left="205" Canvas.Top="46" Background="White" BorderBrush="White">
+                <Image Name="PlayIcon" ></Image>
+            </Button>
+            <TextBlock Name="MusicPlaying"  Canvas.Left="93" Canvas.Top="7" Width="360" Height="38"></TextBlock>
+
+        </Canvas>
+        <Button Name="RemovePlayList"  Click="RemovePlaylist_Click" Canvas.Left="205" Canvas.Top="215" Height="30" Width="170" Background="White" BorderBrush="White">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <Image Source="Image/removeList.png"></Image>
+                <TextBlock Text="Remove PlayList"  FontWeight="Bold"  Foreground="Red" FontSize="18px" Width="140"></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Name="Remove" Click="Remove_Click" Canvas.Left="89" Canvas.Top="214" Height="32" Width="108" Background="White" BorderBrush="White">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Image/removeOne.png"></Image>
+                <TextBlock Text=" Remove" VerticalAlignment="Center" FontWeight="Bold" Foreground="Red" FontSize="18px"></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Name="playButton" Width="80" Height="36" Click="playButton_Click" Canvas.Left="302" Canvas.Top="174" Background="White" BorderBrush="White">
+            <Image Source="Image/play02.png"></Image>
+        </Button>
+        <Button Name="LoopSong" Width="79" Height="36" Click="LoopSong_Click" Canvas.Left="387" Canvas.Top="175" Background="White" BorderBrush="White">
+            <Image Name="Loop"  Width="60" Source="Image/NotRepeat.jpg"></Image>
+        </Button>
+        <Button Name="SavePlayList" Width="153" Height="32" Click="Save_Click" RenderTransformOrigin="0.912,1.094" Canvas.Left="384" Canvas.Top="215" Background="White" BorderBrush="White">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Image/save.png"></Image>
+                <TextBlock Text=" Save PlayList" VerticalAlignment="Center" Foreground="Green" FontWeight="Bold" FontSize="18px"></TextBlock>
+            </StackPanel>
+        </Button>
+        <Button Name="RandomSong" Width="97" Height="36"  Click="RandomSong_Click" Canvas.Left="470" Canvas.Top="175" Background="White" BorderBrush="White">
+            <Image Name="RandomIcon" Width="80" Source="Image/NotRandom.png"></Image>
+        </Button>
+        <Button Name="LoadPlayList" Width="150" Height="32" Click="LoadPlayList_Click" Background="White"  BorderBrush="White" Canvas.Left="546" Canvas.Top="214" RenderTransformOrigin="-1.411,1.312">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="Image/load.png"></Image>
+                <TextBlock Text=" Load PlayList" FontSize="18px" FontWeight="Bold" Foreground="Green" VerticalAlignment="Center"></TextBlock>
+            </StackPanel>
+        </Button>
+    </Canvas>
+</Window>
